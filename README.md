@@ -15,7 +15,7 @@ This project uses **2024 MLB hitting statistics** to explore and visualize team 
 <table>
   <tr>
     <td style="vertical-align: top; width: 50%;">
-      
+
       ## ⚾️ Features & Highlights
 
       - 📥 Load and clean raw CSVs of MLB player statistics  
@@ -27,13 +27,14 @@ This project uses **2024 MLB hitting statistics** to explore and visualize team 
 
     </td>
     <td style="vertical-align: top; width: 50%; text-align: center;">
-      
+
       ## 📊 WAR by Team  
       <img src="visuals/team_war.png" alt="Team WAR Bar Chart" width="90%">
 
     </td>
   </tr>
 </table>
+
 
 ---
 
