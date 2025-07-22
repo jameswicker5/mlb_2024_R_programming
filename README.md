@@ -19,8 +19,11 @@ This project uses **2024 MLB hitting statistics** to explore and visualize team 
 - 🎨 Create dynamic bar plots using **primary + secondary team colors**  
 - 📈 Top 10 leaderboards for hitting categories (HR, Hits, Walks, SB)  
 - 📋 Publish styled HTML tables using the `gt` package  
-- 📁 Save plots and tables to **PDF**, **PNG**, and **HTML** formats  
+- 📁 Save plots and tables to **PDF**, **PNG**, and **HTML** formats
+- 
+## 📊 WAR by Team
 
+![Team WAR Bar Chart](visual/team_war.png)
 ---
 
 ## 🛠️ Skills Practiced
