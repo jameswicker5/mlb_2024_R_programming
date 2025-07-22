@@ -12,18 +12,29 @@ This project uses **2024 MLB hitting statistics** to explore and visualize team 
 
 ---
 
-## ⚾️ Features & Highlights
+<table>
+  <tr>
+    <td style="vertical-align: top; width: 50%;">
+      
+      ## ⚾️ Features & Highlights
 
-- 📥 Load and clean raw CSVs of MLB player statistics  
-- 📊 Generate **team-level summaries** including WAR, batting average, OBP, and more  
-- 🎨 Create dynamic bar plots using **primary + secondary team colors**  
-- 📈 Top 10 leaderboards for hitting categories (HR, Hits, Walks, SB)  
-- 📋 Publish styled HTML tables using the `gt` package  
-- 📁 Save plots and tables to **PDF**, **PNG**, and **HTML** formats
-- 
-## 📊 WAR by Team
+      - 📥 Load and clean raw CSVs of MLB player statistics  
+      - 📊 Generate **team-level summaries** including WAR, batting average, OBP, and more  
+      - 🎨 Create dynamic bar plots using **primary + secondary team colors**  
+      - 📈 Top 10 leaderboards for hitting categories (HR, Hits, Walks, SB)  
+      - 📋 Publish styled HTML tables using the `gt` package  
+      - 📁 Save plots and tables to **PDF**, **PNG**, and **HTML** formats
 
-![Team WAR Bar Chart](visuals/team_war.png)
+    </td>
+    <td style="vertical-align: top; width: 50%; text-align: center;">
+      
+      ## 📊 WAR by Team  
+      <img src="visuals/team_war.png" alt="Team WAR Bar Chart" width="90%">
+
+    </td>
+  </tr>
+</table>
+
 ---
 
 ## 🛠️ Skills Practiced
