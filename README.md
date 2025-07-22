@@ -12,28 +12,27 @@ This project uses **2024 MLB hitting statistics** to explore and visualize team 
 
 ---
 
-<table>
-  <tr>
-    <td style="vertical-align: top; width: 50%;">
+<div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 20px;">
 
-      ## ⚾️ Features & Highlights
+  <div style="flex: 1;">
+    <h2>⚾️ Features & Highlights</h2>
+    <ul>
+      <li>📥 Load and clean raw CSVs of MLB player statistics</li>
+      <li>📊 Generate <strong>team-level summaries</strong> including WAR, batting average, OBP, and more</li>
+      <li>🎨 Create dynamic bar plots using <strong>primary + secondary team colors</strong></li>
+      <li>📈 Top 10 leaderboards for hitting categories (HR, Hits, Walks, SB)</li>
+      <li>📋 Publish styled HTML tables using the <code>gt</code> package</li>
+      <li>📁 Save plots and tables to <strong>PDF</strong>, <strong>PNG</strong>, and <strong>HTML</strong> formats</li>
+    </ul>
+  </div>
 
-      - 📥 Load and clean raw CSVs of MLB player statistics  
-      - 📊 Generate **team-level summaries** including WAR, batting average, OBP, and more  
-      - 🎨 Create dynamic bar plots using **primary + secondary team colors**  
-      - 📈 Top 10 leaderboards for hitting categories (HR, Hits, Walks, SB)  
-      - 📋 Publish styled HTML tables using the `gt` package  
-      - 📁 Save plots and tables to **PDF**, **PNG**, and **HTML** formats
+  <div style="flex: 1; text-align: center;">
+    <h2>📊 WAR by Team</h2>
+    <img src="visuals/team_war.png" alt="Team WAR Bar Chart" style="max-width: 100%; height: auto;">
+  </div>
 
-    </td>
-    <td style="vertical-align: top; width: 50%; text-align: center;">
+</div>
 
-      ## 📊 WAR by Team  
-      <img src="visuals/team_war.png" alt="Team WAR Bar Chart" width="90%">
-
-    </td>
-  </tr>
-</table>
 
 
 ---
