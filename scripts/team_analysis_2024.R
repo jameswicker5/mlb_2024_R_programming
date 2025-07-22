@@ -6,8 +6,8 @@ library(readr)
 library(htmltools)
 
 # Load main data
-bat_data <- read_csv("C:/Users/james/OneDrive/Desktop/Portfolio/R/data/mlb_bat_2024.csv")
-team_colors <- read_csv("C:/Users/james/OneDrive/Desktop/Portfolio/R/data/team_colors.csv")
+bat_data <- read_csv("data/mlb_bat_2024.csv")
+team_colors <- read_csv("data/team_colors.csv")
 
 ## Custom Table for Team Stats
 team_stats <- bat_data %>%
