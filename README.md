@@ -23,7 +23,7 @@ This project uses **2024 MLB hitting statistics** to explore and visualize team 
 - 
 ## 📊 WAR by Team
 
-![Team WAR Bar Chart](visual/team_war.png)
+![Team WAR Bar Chart](/visual/team_war.png)
 ---
 
 ## 🛠️ Skills Practiced
