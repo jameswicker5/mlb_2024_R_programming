@@ -4,6 +4,7 @@ library(dplyr)
 library(gt)
 library(readr)
 library(htmltools)
+library(webshot2)
 
 # Load main data
 bat_data <- read_csv("C:/Users/james/OneDrive/Desktop/Portfolio/R/data/mlb_bat_2024.csv")
@@ -162,6 +163,5 @@ team_stats_cleaned <- team_stats %>%
 
 
 gtsave(gt_table, "team_stats_2024.html")
-gtsave(gt_table, "team_summary_2024.pdf")
 write.csv(team_stats_cleaned, "team_stats_2024.csv", row.names = FALSE)
 
