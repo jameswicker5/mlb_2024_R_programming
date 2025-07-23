@@ -40,6 +40,7 @@ mlb_2024_R_programming/
 └── README.md                             # Project summary and instructions
 ```
 </details>
+
 ---
 
 ## ▶️ How to Run
