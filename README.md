@@ -25,12 +25,6 @@ This project uses **2024 MLB hitting statistics** to explore and visualize team 
       <li>📁 Save plots and tables to <strong>PDF</strong>, <strong>PNG</strong>, and <strong>HTML</strong> formats</li>
     </ul>
   </div>
-
-  ### 📊 Top 10 Players by WAR
-
-  [📄 View PDF Leaderboard](visuals/Player/leaderboard_war_2024.pdf)
-
-
 </div>
 
 
