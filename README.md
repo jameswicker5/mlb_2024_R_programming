@@ -6,7 +6,7 @@ This project analyzes **2024 MLB player and team batting stats** using R. It inc
 
 ---
 
-## 📁 Directory Structure
+<details> <summary><strong>📁 Directory Structure</strong></summary>
 mlb_2024_R_programming/
 │
 ├── data/
@@ -35,7 +35,7 @@ mlb_2024_R_programming/
 │ └── cluster_feature_barplot.png # Top 3 features per cluster
 │
 └── README.md # Project summary and instructions
-
+</details>
 ---
 
 ## ▶️ How to Run
