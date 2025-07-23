@@ -28,8 +28,9 @@ This project uses **2024 MLB hitting statistics** to explore and visualize team 
 
   <div style="flex: 1; text-align: center;">
     <h2>📊 Top 10 Players by WAR</h2>
-    <img src="visuals/Player/leaderboard_war_2024.pdf" alt="Top 10 Players by WAR" style="max-width: 100%; height: 50%;">
+    <embed src="visuals/Player/leaderboard_war_2024.pdf" type="application/pdf" width="100%" height="500px" />
   </div>
+
 
 </div>
 
