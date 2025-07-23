@@ -6,35 +6,39 @@ This project analyzes **2024 MLB player and team batting stats** using R. It inc
 
 ---
 
-<details> <summary><strong>📁 Directory Structure</strong></summary>
+<details>
+<summary><strong>📁 Directory Structure</strong></summary>
+
+```plaintext
 mlb_2024_R_programming/
 │
 ├── data/
-│ ├── mlb_bat_2024.csv # Raw player stats (all batters)
-│ ├── traded_players_2024.csv # Filtered: players with multiple teams
-│ ├── non_traded_players_2024.csv # Filtered: players with one team
-│ ├── team_colors.csv # MLB team color hex codes
-│ └── team_stats_2024.csv # Team-level batting summary
+│   ├── mlb_bat_2024.csv                  # Raw player stats (all batters)
+│   ├── traded_players_2024.csv           # Filtered: players with multiple teams
+│   ├── non_traded_players_2024.csv       # Filtered: players with one team
+│   ├── team_colors.csv                   # MLB team color hex codes
+│   └── team_stats_2024.csv               # Team-level batting summary
 │
 ├── scripts/
-│ ├── batting_analysis.R # Top players in HR, H, BB, SB
-│ ├── team_analysis_2024.R # Main team summary & WAR by team
-│ ├── league_averages.R # AL vs NL stat comparison
-│ ├── player_leaderboard.R # Top 10 players by WAR (PDF)
-│ ├── kmeans_cluster.R # K-means + PCA cluster analysis
-│ └── traded_players.R # Splits raw data into traded/non-traded
+│   ├── batting_analysis.R                # Top players in HR, H, BB, SB
+│   ├── team_analysis_2024.R              # Main team summary & WAR by team
+│   ├── league_averages.R                 # AL vs NL stat comparison
+│   ├── player_leaderboard.R              # Top 10 players by WAR (PDF)
+│   ├── kmeans_cluster.R                  # K-means + PCA cluster analysis
+│   └── traded_players.R                  # Splits raw data into traded/non-traded
 │
 ├── visuals/
-│ ├── Team/
-│ │ ├── team_stats_2024.html # Interactive team batting table
-│ │ └── team_war.png # Bar chart of team WAR
-│ ├── Player/
-│ │ └── leaderboard_war_2024.pdf # Top 10 WAR player leaderboard
-│ └── Clustering/
-│ ├── pca_kmeans_2024.png # Player clusters (PCA plot)
-│ └── cluster_feature_barplot.png # Top 3 features per cluster
+│   ├── Team/
+│   │   ├── team_stats_2024.html          # Interactive team batting table
+│   │   └── team_war.png                  # Bar chart of team WAR
+│   ├── Player/
+│   │   └── leaderboard_war_2024.pdf      # Top 10 WAR player leaderboard
+│   └── Clustering/
+│       ├── pca_kmeans_2024.png           # Player clusters (PCA plot)
+│       └── cluster_feature_barplot.png   # Top 3 features per cluster
 │
-└── README.md # Project summary and instructions
+└── README.md                             # Project summary and instructions
+```
 </details>
 ---
 
