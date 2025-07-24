@@ -57,7 +57,7 @@ league_summary_pivot <- league_summary_long %>%
 print(league_summary_pivot)
 
 # Optional: Save to CSV
-write_csv(league_summary_pivot, "C:/Users/james/OneDrive/Desktop/Portfolio/R/data/league_summary_pivot.csv")
+write_csv(league_summary_pivot, "/data/league_summary_pivot.csv")
 
 # Optional: GT table
 league_summary_pivot %>%
