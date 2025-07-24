@@ -3,8 +3,8 @@ library(tidyverse)
 library(gt)
 
 # Load Dataset
-players <- read_csv("C:/Users/james/OneDrive/Desktop/Portfolio/R/data/non_traded_players_2024.csv")
-team_colors <- read_csv("C:/Users/james/OneDrive/Desktop/Portfolio/R/data/team_colors.csv")
+players <- read_csv("/data/non_traded_players_2024.csv")
+team_colors <- read_csv("/data/team_colors.csv")
 
 # Define stat categories
 percentage_stats <- c(
