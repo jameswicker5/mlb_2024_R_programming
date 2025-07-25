@@ -12,8 +12,8 @@ suppressPackageStartupMessages({
 # 0) Paths / setup
 # ---------------------------
 # EDIT these if needed
-scripts_dir   <- "C:/Users/james/OneDrive/Desktop/Portfolio/R/scripts"
-schedule_path <- "C:/Users/james/OneDrive/Desktop/Portfolio/R/data/mlb_schedule_2024.csv"  # <— your new file
+scripts_dir   <- "/scripts"
+schedule_path <- "/data/mlb_schedule_2024.csv"  
 
 setwd(scripts_dir)
 
