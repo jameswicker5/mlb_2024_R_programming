@@ -3,7 +3,7 @@ library(tidyverse)
 # -----------------------------
 # 1) Load data
 # -----------------------------
-schedule <- read_csv("C:/Users/james/OneDrive/Desktop/Portfolio/R/data/mlb_schedule_2024.csv", show_col_types = FALSE)
+schedule <- read_csv("/data/mlb_schedule_2024.csv", show_col_types = FALSE)
 
 # -----------------------------
 # 2) Matchup counter
