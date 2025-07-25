@@ -3,8 +3,8 @@ library(tidyverse)
 library(gt)
 
 # Load Dataset
-players <- read_csv("C:/Users/james/OneDrive/Desktop/Portfolio/R/data/non_traded_players_2024.csv")
-team_colors <- read_csv("C:/Users/james/OneDrive/Desktop/Portfolio/R/data/team_colors.csv")
+players <- read_csv("/data/non_traded_players_2024.csv")
+team_colors <- read_csv("/data/team_colors.csv")
 
 # Define stat categories
 percentage_stats <- c(
@@ -57,7 +57,7 @@ league_summary_pivot <- league_summary_long %>%
 print(league_summary_pivot)
 
 # Optional: Save to CSV
-write_csv(league_summary_pivot, "C:/Users/james/OneDrive/Desktop/Portfolio/R/data/league_summary_pivot.csv")
+write_csv(league_summary_pivot, "/data/league_summary_pivot.csv")
 
 # Optional: GT table
 league_summary_pivot %>%
