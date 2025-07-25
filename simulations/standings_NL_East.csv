@@ -1,0 +1,6 @@
+team,Games,Wins,Losses,Win_Pct,Runs_For,Runs_Against,Run_Diff,division
+NYM,162,89,73,0.549,663,567,96,NL_East
+PHI,162,88,74,0.543,662,635,27,NL_East
+ATL,162,81,81,0.5,562,538,24,NL_East
+WSN,162,71,91,0.438,551,578,-27,NL_East
+MIA,162,71,91,0.438,534,617,-83,NL_East

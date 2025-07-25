@@ -1,0 +1,6 @@
+team,Games,Wins,Losses,Win_Pct,Runs_For,Runs_Against,Run_Diff,division
+HOU,162,84,78,0.519,570,563,7,AL_West
+SEA,162,83,79,0.512,533,540,-7,AL_West
+TEX,162,80,82,0.494,572,560,12,AL_West
+OAK,162,70,92,0.432,489,534,-45,AL_West
+LAA,162,65,97,0.401,524,548,-24,AL_West
