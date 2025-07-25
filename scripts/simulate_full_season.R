@@ -1,6 +1,5 @@
 # ------------------------------------------------------------------
-# Simulate full MLB season from a fixed schedule file
-# Each row in mlb_season_2024.csv is a game: columns = home, away
+# Simulate full MLB season from a fixed schedule file (updated for pitcher-batter engine)
 # ------------------------------------------------------------------
 
 suppressPackageStartupMessages({
@@ -11,18 +10,17 @@ suppressPackageStartupMessages({
 # ---------------------------
 # 0) Paths / setup
 # ---------------------------
-# EDIT these if needed
-scripts_dir   <- "/scripts"
-schedule_path <- "/data/mlb_schedule_2024.csv"  
+scripts_dir   <- "C:/Users/james/OneDrive/Desktop/Portfolio/R/scripts"
+schedule_path <- "C:/Users/james/OneDrive/Desktop/Portfolio/R/data/mlb_schedule_2024.csv"
 
 setwd(scripts_dir)
 
 if (!file.exists("setup_simulation.R")) {
   stop("setup_simulation.R not found in working directory: ", getwd())
 }
-source("setup_simulation.R")  # must define sim_players, simulate_game(), etc.
+source("setup_simulation.R")  # loads all sim functions + data
 
-set.seed(42)  # reproducibility
+set.seed(42)
 
 # ---------------------------
 # 1) Team list / lineups
@@ -37,7 +35,7 @@ divisions <- list(
 )
 teams <- unlist(divisions)
 
-# Build 9-man lineups (fallback handled below if any are missing)
+# Build 9-man lineups
 team_lineups <- sim_players %>%
   filter(team %in% teams) %>%
   group_by(team) %>%
@@ -50,56 +48,68 @@ team_lineups <- sim_players %>%
 # ---------------------------
 schedule_df <- read_csv(schedule_path, show_col_types = FALSE)
 
-# Expecting columns 'home' and 'away'
 stopifnot(all(c("home", "away") %in% names(schedule_df)))
 
-# If there is a 'date' column, keep it; else create a sequential game_id
 if (!"date" %in% names(schedule_df)) {
-  schedule_df <- schedule_df %>%
-    mutate(date = row_number())
+  schedule_df <- schedule_df %>% mutate(date = row_number())
 }
 
-# Check every team appears in your team set
+# Expand teams list if needed
 schedule_teams <- union(schedule_df$home, schedule_df$away)
-
 not_in_divisions <- setdiff(schedule_teams, teams)
 if (length(not_in_divisions)) {
-  message("⚠ The following teams are in the schedule but not in your divisions vector: ",
-          paste(not_in_divisions, collapse = ", "))
-  # You can choose to stop or just expand 'teams' to include these:
+  message("⚠ Teams in schedule but not in division list: ", paste(not_in_divisions, collapse = ", "))
   teams <- union(teams, schedule_teams)
 }
 
 # ---------------------------
-# 3) Fill missing lineups (if any)
+# 3) Fill missing lineups
 # ---------------------------
 missing_lineups <- setdiff(teams, names(team_lineups))
-if (length(missing_lineups) > 0) {
+if (length(missing_lineups)) {
   message("⚠ Missing lineups for: ", paste(missing_lineups, collapse = ", "),
-          ". Will copy a random existing lineup for each.")
+          ". Copying a random existing lineup for each.")
   for (t in missing_lineups) {
     team_lineups[[t]] <- team_lineups[[sample(names(team_lineups), 1)]]
   }
 }
 
 # ---------------------------
-# 4) Simulate games
+# 4) Simulate games (using pitcher+batter engine)
 # ---------------------------
-message("Simulating ", nrow(schedule_df), " games...")
+message("Simulating ", nrow(schedule_df), " games with pitching matchups...")
 
-season_home <- schedule_df %>%
-  rowwise() %>%
-  mutate(res = list(simulate_game(team_lineups[[home]], team_lineups[[away]]))) %>%
-  unnest_wider(res) %>%
-  ungroup() %>%
-  transmute(
-    date,
+# Track starting pitcher rotation index
+starter_counters <- setNames(rep(1, length(teams)), teams)
+
+simulate_game_row <- function(home, away, date) {
+  idx_home <- starter_counters[[home]]
+  idx_away <- starter_counters[[away]]
+
+  game_result <- simulate_game_pitching(
+    lineup1 = team_lineups[[home]],
+    lineup2 = team_lineups[[away]],
+    team1 = home,
+    team2 = away,
+    starter_index_1 = idx_home,
+    starter_index_2 = idx_away
+  )
+
+  # Update rotation counters (cycle 1-5)
+  starter_counters[[home]] <<- (idx_home %% rotation_n) + 1
+  starter_counters[[away]] <<- (idx_away %% rotation_n) + 1
+
+  tibble(
+    date = date,
     team = home,
     opponent = away,
-    runs_for = Team1,
-    runs_against = Team2,
-    win = Team1 > Team2
+    runs_for = game_result$Team1,
+    runs_against = game_result$Team2,
+    win = game_result$Team1 > game_result$Team2
   )
+}
+
+season_home <- pmap_dfr(schedule_df, simulate_game_row)
 
 season_away <- season_home %>%
   transmute(
@@ -130,12 +140,9 @@ standings <- season %>%
   ) %>%
   arrange(desc(Wins), desc(Run_Diff))
 
-# Division standings -- Used for Factoring Postseason
-
-# Create a division lookup table from the list
+# Division standings
 division_lookup <- map_dfr(divisions, ~ tibble(team = .x), .id = "division")
 
-# Join and sort
 standings_div <- standings %>%
   left_join(division_lookup, by = "team") %>%
   arrange(division, desc(Wins), desc(Run_Diff))
@@ -151,6 +158,6 @@ standings_div %>%
 
 standings %>%
   gt() %>%
-  tab_header(title = "Simulated 2024 MLB Season") %>%
+  tab_header(title = "Simulated 2024 MLB Season (with Pitching)") %>%
   fmt_number(c(Games, Wins, Losses, Runs_For, Runs_Against, Run_Diff), decimals = 0) %>%
   fmt_number(Win_Pct, decimals = 3)
