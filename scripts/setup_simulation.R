@@ -5,7 +5,7 @@ library(gt)
 library(purrr)
 
 # Load Data
-bat_data <- read_csv("C:/Users/james/OneDrive/Desktop/Portfolio/R/data/mlb_bat_2024.csv") %>%
+bat_data <- read_csv("/data/mlb_bat_2024.csv") %>%
 	filter(!team %in% c("2TM", "3TM"))
 
 # Create player-level probabilities
