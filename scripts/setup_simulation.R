@@ -9,8 +9,8 @@ suppressPackageStartupMessages({
 # ------------------------------------------------------------------
 # 0) Load batting & pitching data
 # ------------------------------------------------------------------
-bat_path   <- "C:/Users/james/OneDrive/Desktop/Portfolio/R/data/mlb_bat_2024.csv"
-pitch_path <- "C:/Users/james/OneDrive/Desktop/Portfolio/R/data/mlb_pitch_2024.csv"
+bat_path   <- "/data/mlb_bat_2024.csv"
+pitch_path <- "/data/mlb_pitch_2024.csv"
 
 bat_data <- read_csv(bat_path, show_col_types = FALSE) %>%
   filter(!team %in% c("2TM", "3TM"))
